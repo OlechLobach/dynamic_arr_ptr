@@ -61,13 +61,13 @@ int main()
     srand(time(0));
 
     int items, rows;
-    cout << "rows item = ";
+    cout << "Enter the number of rows: ";
     cin >> rows;
     size_t* array_rows_size = new size_t[rows];
     int** arr_d = new int* [rows];
     for (size_t i = 0; i < rows; i++)
     {
-        cout << "items[" << i << "] = ";
+        cout << "Enter the number of items in row " << i << ": ";
         cin >> items;
         array_rows_size[i] = items;
         arr_d[i] = new int[items];
@@ -78,7 +78,11 @@ int main()
     }
     showArray(arr_d, rows, array_rows_size);
     cout << endl << endl;
-    size_t new_size = 20;
+
+    size_t new_size;
+    cout << "Enter the size of the new row: ";
+    cin >> new_size;
+
     arr_d = add_new_top_line<int>(arr_d, rows, array_rows_size, new_size);
     showArray(arr_d, rows, array_rows_size);
 
